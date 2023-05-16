@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ProductsForm from './components/ProductsForm'
+import ProductsForm from 'components/ProductsForm'
 import axios from 'axios';
 
 import './App.css'
