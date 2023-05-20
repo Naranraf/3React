@@ -1,0 +1,104 @@
+#root {
+  max-width: 1280px;
+  
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.location-container {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: auto;
+  background: #40985f;
+  color: white;
+  border-radius: 10px;
+  margin: 10px;
+  text-align: justify;
+}
+
+h2 {
+  padding: 20px;
+}
+
+.search-bar {
+  display: flex;
+  background-color: #453737;
+  color: white;
+  border-radius: 20px;
+  border: solid 3px rgb(31, 28, 28);
+  height: auto;
+  width: 500px;
+  text-align: center;
+  align-items: center;
+}
+
+.search-bar button {
+  border-radius: 20px;
+  left: 0;
+  
+}
+.search-bar input{
+  width: 82%;
+  background-color:  rgb(85, 80, 80);
+  color: white;
+}
+
+.appContainer{
+  display: flex ;
+  flex-direction: column;
+  width: 100vw;
+  background-color: #40985f;
+}
+.pagination-buttons{
+  display: flex ;
+gap: 10px;
+width: 100vw;
+align-items: center;
+justify-content: center;
+
+}
+.appContainer button{
+  border-radius: 0px;
+  height: 30px;
+  font-size: 12px;
+}
+
