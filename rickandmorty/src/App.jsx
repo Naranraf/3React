@@ -1,5 +1,5 @@
 import axios from "axios";
-import css from "./App.css"
+import css from "./App.css";
 import { useEffect, useState } from "react";
 import ResidentInfo from "./components/ResidentInfo";
 import ResidentInfoDos from "./components/ResidentInfoDos";
@@ -9,6 +9,7 @@ function App() {
   const [residents, setResidents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [idLocation, setIdLocation] = useState(3);
+  
 
   useEffect(() => {
     axios
@@ -16,8 +17,8 @@ function App() {
       .then((resp) => {
         console.log(resp.data);
         setLocation(resp.data);
-        //setResidents( resp.data.residents )
-        getResidentsData(resp.data.residents);
+        
+        getResidentsData(resp.data?.residents);
       })
       .catch((error) => console.error(error));
   }, [idLocation]);
@@ -57,11 +58,16 @@ function App() {
   const residentPerPage = 10;
   const indexOfLastResident = residentPerPage * currentPage;
   const indexOfFirstResident = indexOfLastResident - residentPerPage;
-  const currentResidents = residents.slice(
-    indexOfFirstResident,
-    indexOfLastResident
-  );
-  const lastPage = Math.ceil(residents.length / residentPerPage);
+  // ...
+
+const currentResidents = Array.isArray(residents) ? residents.slice(
+  indexOfFirstResident,
+  indexOfLastResident
+) : [];
+const lastPage = Math.ceil((Array.isArray(residents) ? residents.length : 0) / residentPerPage);
+
+// ...
+
 
   const pagination = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -76,56 +82,45 @@ function App() {
         setLocationResults(resp.data.results);
       });
   };
-
+  
   return (
     <div className="appContainer">
       <h1>{location.name}</h1>
 
       <input
+      className="input-location"
         type="text"
         onChange={(e) => getLocationsFiltered(e.target.value)}
       />
       <select
+      className="select-location"
         name="locations"
         id="locations"
         onChange={(e) => setIdLocation(e.target.value)}
       >
         {locationsResults.map((location) => (
-          <option value={location.id}> {location.name} </option>
+          <option value={location.id} key={location.id}>
+            {location.name}
+          </option>
         ))}
       </select>
 
-      {/*
-            residents.map( resident => (
-                <ResidentInfo 
-                key={ resident }
-                url={ resident }
-                />
-            ))
-            */}
-      {currentResidents.map((resident) => (
+      <ResidentInfo />
+
+      {
+      currentResidents.map((resident) => (
         <ResidentInfoDos key={resident.id} residentData={resident} />
       ))}
-      <button
-        onClick={() => pagination(currentPage - 1)}
-        disabled={currentPage === 1}
-      >
-
-        <div className="pagination-buttons">
-
-        </div>
-        <ResidentInfo></ResidentInfo>
-
-
-
-      </button>
       <div className="pagination-buttons">
-        Prev
+        <button
+          onClick={() => pagination(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Prev
+        </button>
         {[1, 2, 3].map((number) => (
-          <button>
-
+          <button key={number} onClick={() => pagination(number)}>
             {number}
-
           </button>
         ))}
         <button
@@ -134,11 +129,7 @@ function App() {
         >
           Next
         </button>
-
       </div>
-
-
-
     </div>
   );
 }

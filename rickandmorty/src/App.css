@@ -1,6 +1,6 @@
 #root {
   max-width: 1280px;
-  
+
   text-align: center;
 }
 
@@ -74,31 +74,46 @@ h2 {
 .search-bar button {
   border-radius: 20px;
   left: 0;
-  
+
 }
-.search-bar input{
+
+.search-bar input {
   width: 82%;
-  background-color:  rgb(85, 80, 80);
+  background-color: rgb(85, 80, 80);
   color: white;
 }
 
-.appContainer{
-  display: flex ;
+.appContainer {
+  display: flex;
   flex-direction: column;
   width: 100vw;
-  background-color: #40985f;
-}
-.pagination-buttons{
-  display: flex ;
-gap: 10px;
-width: 100vw;
-align-items: center;
-justify-content: center;
+  height: 98vh;
 
 }
-.appContainer button{
+
+.appContainer button {
   border-radius: 0px;
   height: 30px;
   font-size: 12px;
 }
 
+
+.pagination-buttons {
+  display: flex;
+  gap: 10px;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-location{
+  color: black;
+  background-color: #e9e9e9;
+  border: #453737
+  ;
+}
+
+.select-location{
+  background-color: #453737;
+  color: white;
+}
