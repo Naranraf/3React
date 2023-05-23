@@ -2,7 +2,7 @@
 const ResidentInfoDos = ({ residentData }) => {
     return (
         <div className="resident-card">
-            <h1>{residentData?.name}</h1>
+            <h2>{residentData?.name}</h2>
             <img src={residentData?.image} alt="" />
         </div>
     );

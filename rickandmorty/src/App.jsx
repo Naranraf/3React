@@ -9,7 +9,7 @@ function App() {
   const [residents, setResidents] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [idLocation, setIdLocation] = useState(3);
-  
+
 
   useEffect(() => {
     axios
@@ -17,7 +17,7 @@ function App() {
       .then((resp) => {
         console.log(resp.data);
         setLocation(resp.data);
-        
+
         getResidentsData(resp.data?.residents);
       })
       .catch((error) => console.error(error));
@@ -60,13 +60,13 @@ function App() {
   const indexOfFirstResident = indexOfLastResident - residentPerPage;
   // ...
 
-const currentResidents = Array.isArray(residents) ? residents.slice(
-  indexOfFirstResident,
-  indexOfLastResident
-) : [];
-const lastPage = Math.ceil((Array.isArray(residents) ? residents.length : 0) / residentPerPage);
+  const currentResidents = Array.isArray(residents) ? residents.slice(
+    indexOfFirstResident,
+    indexOfLastResident
+  ) : [];
+  const lastPage = Math.ceil((Array.isArray(residents) ? residents.length : 0) / residentPerPage);
 
-// ...
+  // ...
 
 
   const pagination = (pageNumber) => {
@@ -82,18 +82,20 @@ const lastPage = Math.ceil((Array.isArray(residents) ? residents.length : 0) / r
         setLocationResults(resp.data.results);
       });
   };
-  
+
   return (
     <div className="appContainer">
-      <h1>{location.name}</h1>
 
-      <input
-      className="input-location"
+      <div className="h1-container">
+        <h1>{location.name}</h1>
+        <input
+        className="input-location"
+        placeholder="Buscar"
         type="text"
         onChange={(e) => getLocationsFiltered(e.target.value)}
       />
       <select
-      className="select-location"
+        className="select-location"
         name="locations"
         id="locations"
         onChange={(e) => setIdLocation(e.target.value)}
@@ -104,13 +106,19 @@ const lastPage = Math.ceil((Array.isArray(residents) ? residents.length : 0) / r
           </option>
         ))}
       </select>
+      </div>
+
+
+
+
+      
 
       <ResidentInfo />
 
       {
-      currentResidents.map((resident) => (
-        <ResidentInfoDos key={resident.id} residentData={resident} />
-      ))}
+        currentResidents.map((resident) => (
+          <ResidentInfoDos key={resident.id} residentData={resident} />
+        ))}
       <div className="pagination-buttons">
         <button
           onClick={() => pagination(currentPage - 1)}

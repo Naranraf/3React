@@ -13,9 +13,10 @@ const ResidentInfo = ({ url }) => {
         .catch( error => console.error(error) )
     }, [] )
 
+    
     return (
         <div className="residentInfo-card">
-            <h1>{ resident?.name }</h1>
+            <h2>{ resident?.name }</h2>
             <img src={ resident?.image } alt="" />
         </div>
     );
