@@ -113,7 +113,7 @@ function App() {
 
       
 
-      <ResidentInfo />
+      
 
       {
         currentResidents.map((resident) => (

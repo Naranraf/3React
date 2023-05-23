@@ -1,8 +1,4 @@
-#root {
-  max-width: 1280px;
 
-  text-align: center;
-}
 
 .logo {
   height: 6em;
@@ -85,17 +81,21 @@ h2 {
 
 .appContainer {
   display: flex;
-  flex-direction: column;
-  width: 100vw;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  width: 100%;
   height: 100%;
-background-color: #40985f;
+  gap: 20px;
+  background-color: #40985f;
 }
+
 
 .appContainer button {
   border-radius: 0px;
   height: 30px;
   font-size: 12px;
-  
+border-radius: 10px;
 }
 
 
@@ -107,7 +107,7 @@ background-color: #40985f;
   justify-content: center;
 }
 
-.input-location{
+.input-location {
   color: black;
   background-color: #e9e9e9;
   border: #453737;
@@ -115,27 +115,34 @@ background-color: #40985f;
   border-radius: 10px;
 }
 
-.select-location{
+.select-location {
   background-color: #453737;
   color: white;
   width: 10%;
 }
 
-h1{
+h1 {
   color: white;
   background-color: #45373700;
   width: 100vw;
 }
 
-.h1-container{
+.h1-container {
   display: flex;
-  height:300px;
+  height: 300px;
   background-size: 100%;
   background-repeat: no-repeat;
   flex-direction: column;
-background-image:url(https://images.hdqwalls.com/wallpapers/rick-and-morty-out-of-control-4k-ak.jpg) ;
+  background-image: url(https://images.hdqwalls.com/wallpapers/rick-and-morty-out-of-control-4k-ak.jpg);
 }
 
-.residentInfo-card{
+.resident-card {
+  background-color: #1f492b;
+  display: flex;
+  width: 350px;
+  flex-direction: column;
+  height: auto;
+  color: white;
+  border-radius: 10px;
   
 }

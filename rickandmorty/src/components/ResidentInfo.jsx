@@ -16,8 +16,7 @@ const ResidentInfo = ({ url }) => {
     
     return (
         <div className="residentInfo-card">
-            <h2>{ resident?.name }</h2>
-            <img src={ resident?.image } alt="" />
+            
         </div>
     );
 };

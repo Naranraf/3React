@@ -2,8 +2,13 @@
 const ResidentInfoDos = ({ residentData }) => {
     return (
         <div className="resident-card">
-            <h2>{residentData?.name}</h2>
-            <img src={residentData?.image} alt="" />
+            <img src={residentData?.image}
+             alt="" />
+            <h2>Nombre: {residentData?.name}</h2>
+            <h2>Estado: {residentData?.status}</h2>
+            <h2>Origen: {residentData?.origin.name}</h2>
+            <h2>Apariciones: {residentData?.episode?.length}</h2>
+            
         </div>
     );
 };
