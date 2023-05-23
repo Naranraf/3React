@@ -1,8 +1,8 @@
 import axios from "axios";
-import css from "./App.css";
+import css from "/App.css";
 import { useEffect, useState } from "react";
-import ResidentInfo from "./components/ResidentInfo";
-import ResidentInfoDos from "./components/ResidentInfoDos";
+import ResidentInfo from "/components/ResidentInfo";
+import ResidentInfoDos from "/components/ResidentInfoDos";
 
 function App() {
   const [location, setLocation] = useState({});
